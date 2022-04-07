@@ -1,0 +1,422 @@
+{
+	"info": {
+		"_postman_id": "2e4591e7-a623-4cb1-8d0d-b728e8b04929",
+		"name": "DZ#3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "7. Company name",
+			"item": [
+				{
+					"name": "New Request",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"aye@jj.xcom\",\r\n    \"name\": \"RobotZ\",\r\n    \"password\": \"123321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a company",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"company_name\": \"BRAQ_ld\",\r\n  \"company_type\": \"ООО\",\r\n  \"company_users\": [\"aye@jj.xcom\"],\r\n  \"email_owner\": \"aye@jj.xcom\"\r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/createcompany",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"createcompany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search company Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"company_name\": \"BRAQ_ld2\",\r\n  \"company_type\": \"ООО\",\r\n  \"company_users\": [\"aye@jj.xcom\"],\r\n  \"email_owner\": \"aye@jj.xcom\"\r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/createcompany",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"createcompany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserFull 2 company",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"second = jsonData.companys[1].name\r",
+									"console.log(second)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"aye@jj.xcom\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/getuserfull",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"getuserfull"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "6. malahov",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Malahov+\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.suggestions[2].data.surname).to.eql(\"Малахов\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Malahov+ failed\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.suggestions[2].data.surname).to.eql(\"Малахов4\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "token 3c1898bf28e29a65c98936d60ee6df8e7bbbe66b",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio?query=Андрей Мал",
+					"protocol": "https",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "Андрей Мал"
+						},
+						{
+							"key": "gender",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.List Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"kolvo = jsonData.total\r",
+							"console.log(kolvo)\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"charli = jsonData.data[4].first_name\r",
+							"console.log(charli)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"Charles\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9. Get issue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"countWatchers = jsonData.fields.watches.watchCount;\r",
+							"console.log('1) '+countWatchers);\r",
+							"\r",
+							"blockers = jsonData.fields.issuelinks[0].type.name;\r",
+							"console.log('2) '+blockers);\r",
+							"\r",
+							"colour = jsonData.fields.issuelinks[0].outwardIssue.fields.status.statusCategory.colorName;\r",
+							"console.log('3) '+colour);\r",
+							"\r",
+							"subt = jsonData.fields.issuelinks[0].outwardIssue.fields.issuetype.subtask;\r",
+							"console.log('4) '+subt);\r",
+							"\r",
+							"attac = jsonData.fields.attachment[0].author.displayName;\r",
+							"console.log('5) '+attac);\r",
+							"\r",
+							"summ = jsonData.fields.subtasks[1].fields.summary;\r",
+							"console.log('6) '+summ);\r",
+							"\r",
+							"idSub = jsonData.fields.subtasks[1].fields.status.statusCategory.id;\r",
+							"console.log('7) '+idSub);\r",
+							"\r",
+							"prior = jsonData.fields.subtasks[1].fields.priority.name;\r",
+							"console.log('8) '+prior);\r",
+							"\r",
+							"timeZ = jsonData.fields.comment.comments[0].author.timeZone;\r",
+							"console.log('9) '+timeZ);\r",
+							"\r",
+							"boddy = jsonData.fields.comment.comments[0].body\r",
+							"console.log('10) '+boddy);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "lL3A5jGF565d4WWOjBzl6F0C",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mail.for.testbase@yandex.ru",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://testbase.atlassian.net/rest/api/2/issue/TV-4",
+					"protocol": "https",
+					"host": [
+						"testbase",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"TV-4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

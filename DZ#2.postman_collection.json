@@ -1,0 +1,247 @@
+{
+	"info": {
+		"_postman_id": "e63d6481-7084-4963-ae97-ce770ef0d957",
+		"name": "DZ#2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "2. Create Issue",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n       \"project\":\r\n       {\r\n          \"key\": \"TEST\"\r\n       },\r\n       \"summary\": \"REST ye merry gentlemen.\",\r\n       \"description\": \"Creating of an issue using project keys and issue type names using the REST API\",\r\n       \"issuetype\": {\r\n          \"name\": \"Bug\"\r\n       }\r\n   }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://testbase.atlassian.net/rest/api/2/issue/",
+					"protocol": "https",
+					"host": [
+						"testbase",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. Add comments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code name has Created\", function () {\r",
+							"    pm.response.to.have.status(\"Created\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code name has Created\", function () {\r",
+							"    pm.response.to.have.status(\"test\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.contain('application/json');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.contain('test');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"body\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget venenatis elit. Duis eu justo eget augue iaculis fermentum. Sed semper quam laoreet nisi egestas at posuere augue semper.\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://testbase.atlassian.net/rest/api/2/issue/TEST-13770/comment",
+					"protocol": "https",
+					"host": [
+						"testbase",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"TEST-13770",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. Add comments Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code name has Created\", function () {\r",
+							"    pm.response.to.have.status(\"Created\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code name has Created\", function () {\r",
+							"    pm.response.to.have.status(\"test\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.contain('application/json');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.contain('test');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"body\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget venenatis elit. Duis eu justo eget augue iaculis fermentum. Sed semper quam laoreet nisi egestas at posuere augue semper.\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://testbase.atlassian.net/rest/api/2/issue/TEST-13770/comment",
+					"protocol": "https",
+					"host": [
+						"testbase",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"TEST-13770",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. CTO check (USERS)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful CTO search\", () => {\r",
+							"  pm.expect(pm.response.code).to.be.oneOf([231,232,235]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Failed CTO search\", () => {\r",
+							"  pm.expect(pm.response.code).to.be.oneOf([230,233,234]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://users.bugred.ru/tasks/rest/magicsearch?query=Лунатиков&partyType=USER",
+					"protocol": "http",
+					"host": [
+						"users",
+						"bugred",
+						"ru"
+					],
+					"path": [
+						"tasks",
+						"rest",
+						"magicsearch"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "Лунатиков"
+						},
+						{
+							"key": "partyType",
+							"value": "USER"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "lL3A5jGF565d4WWOjBzl6F0C",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "mail.for.testbase@yandex.ru",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

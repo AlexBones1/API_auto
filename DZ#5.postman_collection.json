@@ -1,0 +1,1469 @@
+{
+	"info": {
+		"_postman_id": "16d4f7f6-7a96-4a3c-95aa-33b73d35d5ca",
+		"name": "DZ#5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "19. Statuses + Lenght",
+			"item": [
+				{
+					"name": "DZ#1 234",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"More than 1 company result (no Users)\", function () {\r",
+									"    pm.response.to.have.status(234);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Lenght is more than 1\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.results).to.have.lengthOf.above(1);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Lenght is more than 1 failed\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.results).to.have.lengthOf.below(1);\r",
+									" });"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json, application/xml, form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/magicsearch?query=Рога",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"magicsearch"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "Рога"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DZ#1 235",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"More than 1 company and Users result (with Users)\", function () {\r",
+									"    pm.response.to.have.status(235);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Lenght is more than 1\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.results).to.have.lengthOf.above(1);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Lenght is more than 1 failed\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.results).to.have.lengthOf.below(1);\r",
+									" });"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json, application/xml, form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/magicsearch?query=Ромашка",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"magicsearch"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "Ромашка"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DZ#1 230",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Empty check\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.results).to.be.empty;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Empty check\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.results).to.be.not.empty;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json, application/xml, form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/magicsearch?query=jkjkjk",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"magicsearch"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "jkjkjk"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DZ#1 231",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Lenght is 1\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.results).to.be.lengthOf(1);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Lenght is 1 fail\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.results).to.be.lengthOf(2);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json, application/xml, form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/magicsearch?query=stev",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"magicsearch"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "stev"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DZ#1 232",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Lenght is more than 1\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.results).to.have.lengthOf.above(1);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Lenght is more than 1 failed\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.results).to.have.lengthOf.below(1);\r",
+									"});\r",
+									"pm.test(\"Status code is 232\", function () {\r",
+									"    pm.response.to.have.status(232);\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json, application/xml, form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/magicsearch?query=Александр",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"magicsearch"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "Александр"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DZ#1 233",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 233\", function () {\r",
+									"    pm.response.to.have.status(233);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Lenght is 1\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.results).to.be.lengthOf(1);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Lenght is 1 fail\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.results).to.be.lengthOf(2);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json, application/xml, form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/magicsearch?query=BRAQ_ld",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"magicsearch"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "BRAQ_ld"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "20 statuses body number status",
+			"item": [
+				{
+					"name": "455",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 455\", function () {\r",
+									"    pm.response.to.have.status(455);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Code text is good\", function () {\r",
+									"    pm.expect(jsonData.code_error).to.eql('455');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Проверка текста сообщения об ошибке\", function () {\r",
+									"    pm.expect(jsonData.message).to.include(\"Не найден обязательный параметр query\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json, application/xml, form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"magicsearch"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "Рога",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "456",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 455\", function () {\r",
+									"    pm.response.to.have.status(456);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Code text is good\", function () {\r",
+									"    pm.expect(jsonData.code_error).to.eql('456');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Проверка текста сообщения об ошибке\", function () {\r",
+									"    pm.expect(jsonData.message).to.include(\"Длина запроса не должна превышать 1000 символов\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json, application/xml, form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/magicsearch?query=FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"magicsearch"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+								},
+								{
+									"key": "partyType",
+									"value": "bull",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "457",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 457\", function () {\r",
+									"    pm.response.to.have.status(457);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Code text is good\", function () {\r",
+									"    pm.expect(jsonData.code_error).to.eql('457');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Проверка текста сообщения об ошибке\", function () {\r",
+									"    pm.expect(jsonData.message).to.include(\"Параметр partyType может принимать только значения: ALL,USER, COMPANY\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json, application/xml, form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/magicsearch?query=jkjkjk&partyType=test",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"magicsearch"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "jkjkjk"
+								},
+								{
+									"key": "partyType",
+									"value": "test"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "458",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 458\", function () {\r",
+									"    pm.response.to.have.status(458);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Code text is good\", function () {\r",
+									"    pm.expect(jsonData.code_error).to.eql('458');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Проверка текста сообщения об ошибке\", function () {\r",
+									"    pm.expect(jsonData.message).to.include(\"Параметр taskStatus может принимать только значения: ALL, ACTUAL, COMPLETE, FAIL\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json, application/xml, form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/magicsearch?query=stev&taskStatus=test",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"magicsearch"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "stev"
+								},
+								{
+									"key": "taskStatus",
+									"value": "test"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "459",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 459\", function () {\r",
+									"    pm.response.to.have.status(459);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Code text is good\", function () {\r",
+									"    pm.expect(jsonData.code_error).to.eql('459');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Проверка текста сообщения об ошибке\", function () {\r",
+									"    pm.expect(jsonData.message).to.include(\"Параметр include может принимать только значения: ALL, USER, COMPANY, TASK, WHY\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json, application/xml, form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/magicsearch?query=Александр&include=test",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"magicsearch"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "Александр"
+								},
+								{
+									"key": "include",
+									"value": "test"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "21 NodeJS statuses body number status Copy",
+			"item": [
+				{
+					"name": "455",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"var statusNum =  pm.response.code; // почему-то 'ERROR'\r",
+									"var statusStr = jsonData.code_error;\r",
+									"const assert = require('assert');\r",
+									"\r",
+									"pm.test(\"Num == Str Status\", function () {\r",
+									"    assert.ok(statusNum == statusStr)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Num == Str Status\", function () {\r",
+									"    assert.ok(statusNum === statusStr)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json, application/xml, form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/magicsearch",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"magicsearch"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "Рога",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "456",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"var statusNum =  pm.response.code; // почему-то 'ERROR'\r",
+									"var statusStr = jsonData.code_error;\r",
+									"const assert = require('assert');\r",
+									"\r",
+									"pm.test(\"Num == Str Status\", function () {\r",
+									"    assert.ok(statusNum == statusStr)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Num == Str Status\", function () {\r",
+									"    assert.ok(statusNum === statusStr)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json, application/xml, form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/magicsearch?query=FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"magicsearch"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+								},
+								{
+									"key": "partyType",
+									"value": "bull",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "457",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"var statusNum =  pm.response.code; // почему-то 'ERROR'\r",
+									"var statusStr = jsonData.code_error;\r",
+									"const assert = require('assert');\r",
+									"\r",
+									"pm.test(\"Num == Str Status\", function () {\r",
+									"    assert.ok(statusNum == statusStr)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Num == Str Status\", function () {\r",
+									"    assert.ok(statusNum === statusStr)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json, application/xml, form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/magicsearch?query=jkjkjk&partyType=test",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"magicsearch"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "jkjkjk"
+								},
+								{
+									"key": "partyType",
+									"value": "test"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "458",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"var statusNum =  pm.response.code; // почему-то 'ERROR'\r",
+									"var statusStr = jsonData.code_error;\r",
+									"const assert = require('assert');\r",
+									"\r",
+									"pm.test(\"Num == Str Status\", function () {\r",
+									"    assert.ok(statusNum == statusStr)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Num == Str Status\", function () {\r",
+									"    assert.ok(statusNum === statusStr)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json, application/xml, form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/magicsearch?query=stev&taskStatus=test",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"magicsearch"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "stev"
+								},
+								{
+									"key": "taskStatus",
+									"value": "test"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "459",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"var statusNum =  pm.response.code; // почему-то 'ERROR'\r",
+									"var statusStr = jsonData.code_error;\r",
+									"const assert = require('assert');\r",
+									"\r",
+									"pm.test(\"Num == Str Status\", function () {\r",
+									"    assert.ok(statusNum == statusStr)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Num == Str Status\", function () {\r",
+									"    assert.ok(statusNum === statusStr)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": " application/json, application/xml, form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/magicsearch?query=Александр&include=test",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"magicsearch"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "Александр"
+								},
+								{
+									"key": "include",
+									"value": "test"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "16. Types of",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Array type test\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.fields.fixVersions).that.is.a('array');",
+							"});",
+							"",
+							"pm.test(\"Array type test failed\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.fields.fixVersions).that.is.a('string');",
+							"});",
+							"",
+							"pm.test(\"Object type test\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.fields.watches).that.is.a('object');",
+							"});",
+							"",
+							"pm.test(\"Object type test failed\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.fields.watches).that.is.a('array');",
+							"});",
+							"",
+							"pm.test(\"Numeric type test\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.fields.workratio).that.is.a('number');",
+							"});",
+							"",
+							"pm.test(\"Numeric type test failed\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.fields.workratio).that.is.a('string');",
+							"});",
+							"",
+							"pm.test(\"Array type test\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.fields.issuelinks).to.be.a('array');",
+							"});",
+							"",
+							"pm.test(\"Array type test failed\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.fields.issuelinks).to.be.a('string');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "mail.for.testbase@gmail.com",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "ksWvXkKQJGnhRTwYJtABB6DC",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://testbase.atlassian.net/rest/api/2/issue/TV-4",
+					"protocol": "https",
+					"host": [
+						"testbase",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"TV-4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "18. malahov Type",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Malahov+\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.suggestions).to.include.deep.members([{\r",
+							"            \"value\": \"Андрей Малахов\",\r",
+							"            \r",
+							"}]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Малахов\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "token 3c1898bf28e29a65c98936d60ee6df8e7bbbe66b",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio?query=Андрей Мал",
+					"protocol": "https",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "Андрей Мал"
+						},
+						{
+							"key": "gender",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "22. XML malahov",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonObject = xml2Json(responseBody);\r",
+							"console.log(jsonObject.SuggestResponse.suggestions)\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"        pm.expect(jsonObject.SuggestResponse.suggestions).to.deep.include({\r",
+							"            value: \"Андрей Малахов\",\r",
+							"            unrestricted_value: \"Андрей Малахов\",\r",
+							"            data: {\r",
+							"                surname: \"Малахов\",\r",
+							"                name: \"Андрей\",\r",
+							"                patronymic: \"\",\r",
+							"                gender: \"MALE\",\r",
+							"                source: \"\",\r",
+							"                qc: \"0\"\r",
+							"            }\r",
+							"        })\r",
+							"        \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Малахов\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "token 3c1898bf28e29a65c98936d60ee6df8e7bbbe66b",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio?query=Андрей Мал",
+					"protocol": "https",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "Андрей Мал"
+						},
+						{
+							"key": "gender",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "23. Headers and cookies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Header Server test\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Server\")).to.include('AtlassianProxy');",
+							"});",
+							"",
+							"pm.test(\"Header Server test failed\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Server\")).to.include('AtlassianPdsdroxy');",
+							"});",
+							"",
+							"pm.test(\"Header Content-Type test\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include('charset=UTF-8');",
+							"});",
+							"",
+							"pm.test(\"Header Content-Type failed\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include('chadsdrset=UTF-8');",
+							"});",
+							"",
+							"pm.test(\"Cookie test\", function () {",
+							"    pm.expect(pm.cookies.get(\"atlassian.xsrf.token\")).to.include('BR84-VGGI-5LO6-JDEE_1f53b37e178d721fccc8d2554ebbeb44a0e9ea53_lin');",
+							"});",
+							"",
+							"pm.test(\"Cookie test failed\", function () {",
+							"    pm.expect(pm.cookies.get(\"atlassian.xsrf.token\")).to.include('BR8dd4-VGGI-5LO6-JDEE_1f53b37e178d721fccc8d2554ebbeb44a0e9ea53_lin');",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "mail.for.testbase@gmail.com",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "ksWvXkKQJGnhRTwYJtABB6DC",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://testbase.atlassian.net/rest/api/2/issue/TV-4",
+					"protocol": "https",
+					"host": [
+						"testbase",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"TV-4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
